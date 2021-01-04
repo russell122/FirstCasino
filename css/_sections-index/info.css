@@ -1,0 +1,27 @@
+.info {
+  background-color: #121223;
+  height: 700px;
+  position: relative;
+  top: -100px;
+  z-index: 1;
+}
+
+.info__body {
+  padding: 170px 0 90px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.info__left {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 47%;
+          flex: 0 1 47%;
+  margin-right: 6%;
+}
+
+.info__right {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 47%;
+          flex: 0 1 47%;
+}

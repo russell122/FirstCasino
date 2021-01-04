@@ -1,0 +1,400 @@
+/* ------------------------------------- 
+ Common styles 
+ ------------------------------------- */
+.main-wrapper
+	display: flex
+	flex-direction: column
+	min-height: 100vh
+	.page
+		flex: 1
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+	.main-wrapper
+		display: block
+
+.container
+	width: 100%
+	padding-right: 15px
+	padding-left: 15px
+	margin-right: auto
+	margin-left: auto
+
+@media (min-width: 576px)
+	.container
+		max-width: 540px
+
+@media (min-width: 768px)
+	.container
+		max-width: 758px
+
+@media (min-width: 992px)
+	.container
+		max-width: 960px
+
+@media (min-width: 1200px)
+	.container
+		max-width: 1170px
+
+.flex, .flex-center
+	display: flex
+	flex-wrap: wrap
+
+.flex-center
+	align-items: center
+	justify-content: center
+
+.img
+	display: block
+	max-width: 100%
+	height: auto
+	&--cover
+		width: 100%
+		height: 100%
+		object-fit: cover
+
+.svg
+	display: block
+	max-width: 100%
+	max-height: 100%
+
+.nowrap
+	white-space: nowrap
+
+.text-center
+	text-align: center
+
+.list
+	margin: 0
+	padding: 0
+	list-style: none
+
+.hide-xl
+	@include max-screen($xl)
+		display: none !important
+
+.show-xl
+	@include min-screen(1200px)
+		display: none !important
+
+.g-menu
+	display: flex
+	ul
+		margin: 0
+		padding: 0
+		display: flex
+		flex-wrap: wrap
+		// justify-content: center
+		li
+			margin-right: 30px
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				width: 100%
+				height: 2px
+				background-color: $accent
+				left: 0
+				bottom: -2px
+				transform: scale(0)
+				transition: all ease .2s
+			&:last-child
+				margin-right: 0
+			&:hover
+				&::before
+					transform: scale(1)
+					transition: all ease .2s
+		a
+			font-weight: 40
+			font-size: 12px
+			line-height: 0.89px
+			letter-spacing: 0.48px
+			text-transform: uppercase
+			color: $white
+			display: inline
+.section-bg
+	background-color: $sectionBgColor
+.g-card
+	display: flex
+	margin-bottom: 20px
+	&__img
+		&:hover
+			svg
+				fill: darken($accent, 10%)
+		svg
+			width: 42px
+			height: 38px
+			fill: $accent
+			cursor: pointer
+			transition: all ease .2s
+			margin-right: 29px
+
+.g-card__wrap
+	display: flex
+	flex-wrap: wrap
+	margin-right: -10px
+	margin-left: -10px
+.g-card__column
+	flex: 0 1 33.3333%
+	max-width: 33.3333%
+	padding: 0 10px
+	margin-bottom: 20px
+	@media (max-width: $xl)
+		flex: 0 1 50%
+		max-width: 50%
+	@media (max-width: $lg)
+		flex: 0 1 100%
+		max-width: 100%
+.g-card__item
+	position: relative
+	height: 100%
+	display: flex
+	background-image: linear-gradient(to bottom, #b53bc7, #582778)
+	// background: rgb(88,39,120)
+	// background: linear-gradient(0deg, rgba(88,39,120,1) 69%, rgba(181,59,199,1) 100%)
+	border-radius: 10px
+	overflow: hidden
+	padding: 25px 10px 32px 0
+.g-card__item-img
+	position: absolute
+	left: -29px
+	img
+		width: 109px
+		height: 109px
+		border-radius: 50%
+		object-fit: cover
+.g-card__item-body
+	padding-left: 95px
+	.g-textBold
+		margin-bottom: 10px
+	.g-text
+		margin-bottom: 20px
+	.lite-text
+		font-size: 14px
+		line-height: 21px
+
+.g-list-ul
+	list-style-type: none
+	padding: 0
+	margin: 0
+	margin-bottom: 20px
+	li
+		line-height: 36px
+		position: relative
+		padding-left: 20px
+		&::before
+			content: ""
+			position: absolute
+			left: 0
+			top: 13px
+			width: 10px
+			height: 10px
+			border-radius: 50%
+			background-color: $accent
+.g-list-ol
+	list-style-type: none
+	counter-reset: myCounter
+	padding: 0
+	margin: 0
+	margin-bottom: 20px
+	li
+		line-height: 36px
+		position: relative
+		padding-left: 20px
+		&::before
+			font-weight: 700
+			color: $accent
+			position: absolute
+			left: 0
+			counter-increment: myCounter
+			content: counter(myCounter) "."
+
+.g-table
+	width: 100%
+	border-collapse: collapse
+	thead
+		tr
+			background-color: #642a82
+	th, td
+		border-right: 1px solid #642a82
+		border-left: 1px solid #642a82
+		padding: 20px
+		font-size: 18px
+		font-weight: 700
+		line-height: 36px
+		text-align: center
+		@include max-screen($md)
+			border: 1px solid #642a82
+	tbody
+		border-bottom: 1px solid #642a82
+		@include max-screen($md)
+			border-bottom: none
+		tr
+			&:nth-child(even)
+				background-color: rgba(39%, 16%, 51%, 0.1)
+			&:nth-child(odd)
+				background-color: #121223
+			@include max-screen($md)
+				&:nth-child(odd)
+					background-color: transparent
+				&:nth-child(even)
+					background-color: transparent
+		td
+			width: 50%
+			@include max-screen($md)
+				&:nth-child(even)
+					background-color: rgba(39%, 16%, 51%, 0.1)
+				&:nth-child(odd)
+					background-color: #121223
+	@include max-screen($md)
+		thead
+			display: none
+		tr
+			display: flex
+			flex-direction: column
+		td
+			width: 100%!important
+			padding: 15px
+			margin-bottom: 5px
+			display: flex
+			align-items: center
+			justify-content: space-between
+			font-size: 14px
+		td:before
+			content: attr(aria-label)
+			width: 60%
+			font-weight: bold
+			text-align: left
+			font-size: 14px
+
+.g-form
+	padding: 10px 0
+	color: #121223
+	&__top
+		display: flex
+		justify-content: space-between
+		margin-bottom: 25px
+		@media (max-width: $sm)
+			flex-direction: column
+			input
+				margin-bottom: 20px
+	&__btn
+		display: flex
+		justify-content: flex-end
+		@media (max-width: $sm)
+			justify-content: center
+		.button
+			@media (max-width: $xl)
+				width: 224px
+	input,textarea
+		padding: 15px 26px 15px 26px
+		font-weight: 500
+		border-radius: 5px
+		outline: none
+		border: none
+		margin-right: 30px
+		width: 100%
+		color: #121223!important
+		&:last-child
+			margin-right: 0px
+	input::placeholder
+		color: #121223
+	textarea::placeholder
+		color: #121223
+	textarea
+		height: 160px
+		margin-bottom: 25px
+
+/* ---------- Titles & text ---------- */
+h1, .title-1
+	font-size: 60px
+	font-weight: 700
+	@media (max-width: $xl)
+		font-size: 55px
+	@media (max-width: $lg)
+		font-size: 50px
+	@media (max-width: $md)
+		font-size: 40px
+	@media (max-width: $sm)
+		font-size: 30px
+h2, .title-2
+	font-size: 36px
+	font-weight: 700
+	margin-bottom: 29px
+	@media (max-width: $xl)
+		font-size: 32px
+	@media (max-width: $lg)
+		font-size: 28px
+	@media (max-width: $md)
+		font-size: 24px
+	@media (max-width: $sm)
+		font-size: 22px
+h3, .title-3
+	font-size: 18px
+	font-weight: 700
+p, .g-text
+	font-weight: 400
+	font-size: 16px
+	line-height: 24px
+	color: $white
+	margin-bottom: 20px
+.g-textBold
+	font-size: 18px
+	font-weight: 700
+.g-grayText
+	font-weight: 500
+	font-size: 18px
+	line-height: 30px
+	color: rgba(255, 255, 255, 0.6)
+	@media (max-width: $sm)
+		font-size: 16px
+		line-height: 24px
+a, .g-link
+	font-weight: 600
+	font-size: 18px
+	line-height: 30px
+	display: block
+	color: $accent
+	transition: all ease .2s
+	&:hover
+		color: darken($accent, 10%)
+	@media (max-width: $sm)
+		font-size: 16px
+		line-height: 24px
+.g-bigIndent
+	padding: 170px 0 90px 0
+	@media (max-width: $lg)
+		padding: 150px 0 70px 0
+.g-sectionIndent
+	padding-bottom: 70px
+	@media (max-width: $lg)
+		padding-bottom: 50px
+/* ----- Кнопки ----- */
+.button
+	box-shadow: 0px 9px 16px 0 rgba(171, 140, 192, 0.18)
+	background: linear-gradient(to bottom, #ab8cc0, #6f3497)
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	width: 224px
+	height: 49px
+	padding-top: 2px
+	font-size: 14px
+	font-weight: 600
+	line-height: 10px
+	line-height: 0.76
+	text-transform: uppercase
+	color: $white
+	position: relative
+	z-index: 1
+	cursor: pointer
+	overflow: hidden
+	border-radius: 5px
+	@include trs(.1s)
+	&:hover
+		background: linear-gradient(to bottom, darken(#ab8cc0, 10%), darken(#6f3497, 10%))
+	@media (max-width: $xl)
+		width: 100%
+		height: 100%
+		padding: 16px 20px
+		font-size: 12px
+
+// @include max-screen($xl)
